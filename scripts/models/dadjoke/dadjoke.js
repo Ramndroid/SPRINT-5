@@ -8,7 +8,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { showJoke } from '../../ui/showJoke.js';
-// CLASE JOKE: modelo para cada broma obtenida de dad-joke
+// CLASE DADJOKE: modelo para cada broma obtenida de dad-joke
 let DadJoke = class DadJoke {
     constructor(id, joke, status) {
         this.id = id;

@@ -1,4 +1,5 @@
 import { DadJoke } from "../../models/dadjoke/dadjoke.js";
+import { Joke } from "../../models/joke/joke.js";
 import { API_DAD_JOKE_URL } from "./const-api-dad-joke.js";
 import { API_DAD_JOKE_HEADER } from "./const-api-dad-joke.js";
 
@@ -10,9 +11,12 @@ function getADadJoke(): Promise<Object> {
 }
 
 // EXPORT ASYNC FUNCTION: lanza una petición a la api dad-joke
-export async function showDadJoke(): Promise<void> {
+export async function showDadJoke(jokeList: Joke[]) {
     try {
-      (<any> await getADadJoke()).showJoke(); 
+        const dadJoke: DadJoke = <DadJoke> await getADadJoke(); 
+        (<any>dadJoke).showJoke();
+        jokeList.push(new Joke(dadJoke.joke, "dad-joke"));
+        console.log(jokeList);
     } catch (err: any) {
         console.log(err.message);
     }
