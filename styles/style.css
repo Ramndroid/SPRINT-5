@@ -1,0 +1,131 @@
+* { 
+    box-sizing: border-box; 
+}
+
+html, body { 
+    height: 100%; 
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+body{
+	font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(to top, rgb(19, 161, 255), white);
+}
+
+.weather {
+    margin: 1.5rem 0 8rem 1.5rem;
+    color: rgba(0, 0, 0, 0.432);
+}
+
+.contenido {
+    display: flex;
+    flex-flow: column wrap;
+	justify-content: center;
+	align-content: center;
+}
+
+blockquote {
+    font-style: italic;
+    border: none;
+    quotes: "\201C" "\201D" "\2018" "\2019";
+    display: block;
+    text-align: center;
+  }
+  
+blockquote:before {
+  content: open-quote;
+  color: grey;
+  font-size: 3em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+
+blockquote:after {
+  content: close-quote;
+  color: grey;
+  font-size: 3em;
+  line-height: 0.1em;
+  vertical-align: -0.5em;
+}
+
+blockquote p {
+  display: inline;
+}
+
+.jokes {
+    height: auto;
+    width: 750px;
+    min-height: 450px;
+	margin: 0 2rem;
+    background-color: rgba(255, 255, 255, 0.062);
+    border-radius: 15px;
+    box-shadow: 0px 15px 30px #15228546;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.bienvenida {
+    margin-top: 3rem;
+    text-align: center;
+    color: #07a1e9cb;
+    text-shadow: 0px 3px 6px #15228546;
+}
+
+.chiste {
+    margin: 2rem 8rem;
+    line-height: 1.7rem;
+    font-size: 1.4rem;
+    letter-spacing: 0.1rem;
+    color: #014a6be1;
+}
+
+#btn_next {
+    width: auto;
+    min-width: 200px;
+    margin-bottom: 4rem;
+    align-self: center;
+    border-radius: 15px;
+	background-color: #07a1e9;
+	color: white;
+	font-weight: bold;
+    font-size: 1.1rem;
+	padding: 1rem 1rem;
+	cursor: pointer;
+    border: none;
+    box-shadow: 0px 5px 10px #15228546;
+}
+
+#btn_next:hover {
+	background-color: #07a1e97c;
+}
+
+#btn_next:active {
+	background-color: #0784be7c;
+    box-shadow: 0px 3px 5px #15228546;
+}
+
+@media (max-width: 800px) {
+
+    html, body { 
+        overflow: auto;
+    }
+
+    .jokes {
+        height: auto;
+        width: auto;        
+        margin: 0 2rem;
+    }
+
+    .chiste {
+        margin: 2rem 2rem;
+    }
+
+    .bienvenida {
+        margin: 2rem 1.5rem 0rem 1.5rem;
+    }
+}
+

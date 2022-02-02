@@ -2,5 +2,7 @@
 export function showJoke(constructor: Function){
     constructor.prototype.showJoke = function() {
         console.log(this.joke);
+        let broma = document.getElementById('joke');
+        if (broma != null) broma.innerText = this.joke;
     }
 }

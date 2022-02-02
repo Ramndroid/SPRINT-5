@@ -1,19 +1,30 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sprint 5 - Exercici 1</title>
+    <link rel="stylesheet" href="/styles/style.css">
 </head>
+
 <body>
-    <main>
-        <h1>Preparat per riure?</h1>
-        <div>
-            <h4 id="joke">Fes click a "següent" per obtenir una broma. Recorda valorar-la si en vols veure més!</h4>
+    <div class="weather">
+        <h4>Avui: parcialment ennuvolat</h4>
+    </div>
+    <div class="contenido">
+        <div class="jokes">
+            <h1 class="bienvenida">Preparat per riure? 🤣</h1>
+            <div>
+                <h4 class="chiste">
+                    <blockquote><p id="joke"></p></blockquote>
+                </h4>
+            </div>
+            <button id="btn_next">Següent acudit</button>
         </div>
-        <button id="btn_next">Següent</button>
-    </main>
-    <script src="scripts/main.js" type="module"></script>    
+    </div>
+    <script src="scripts/main.js" type="module"></script>
 </body>
+
 </html>
