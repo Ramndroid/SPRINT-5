@@ -1,21 +1,21 @@
-import { ChuckJoke } from "../../models/chuckjoke.js";
-import { Joke } from "../../models/joke.js";
+import { ChuckJoke } from "../models/chuckjoke.js";
+import { Joke } from "../models/joke.js";
+import { pushJoke } from "../funciones.js";
 
 // URL de la API 'https://api.chucknorris.io' para obtener un chiste
 const API_CHUCK_JOKE_URL: string = 'https://api.chucknorris.io/jokes/random';
 
 // FUNCIÓN EXPORT para hacer la consulta
-export function showChuckJoke(jokeList: Joke[]): void {
-    getChuckJokeAndUpdate(jokeList);
+export function showChuckJoke(): void {
+    getChuckJokeAndUpdate();
 }
 
 // ASYNC FUNCTION: lanza una petición a la api chuck-joke y muestra los resultados
-async function getChuckJokeAndUpdate(jokeList: Joke[]): Promise<void> {
+async function getChuckJokeAndUpdate(): Promise<void> {
     try {
         const chuckJoke: ChuckJoke = <ChuckJoke> await doFetchChuckJoke(); 
         (<any>chuckJoke).updateUiJoke();
-        jokeList.push(new Joke(chuckJoke.joke, Joke.CHUCK));
-        // console.log(jokeList);
+        pushJoke(new Joke(chuckJoke.joke, Joke.CHUCK))
     } catch (err: any) {
         console.log(err.message);
     }    

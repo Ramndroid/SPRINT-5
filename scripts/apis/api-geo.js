@@ -1,4 +1,4 @@
-import { GeoLoca } from "../../models/geoloca.js";
+import { GeoLoca } from "../models/geoloca.js";
 // GEOLOCALIZACIÓN: para obtener la posición y usarla en la api climática
 export function getGeolocation() {
     return new Promise((resolve, reject) => {

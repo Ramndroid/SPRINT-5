@@ -1,5 +1,6 @@
-import { DadJoke } from "../../models/dadjoke.js";
-import { Joke } from "../../models/joke.js";
+import { DadJoke } from "../models/dadjoke.js";
+import { Joke } from "../models/joke.js";
+import { pushJoke } from "../funciones.js";
 
 // URL de la API 'https://icanhazdadjoke.com' para obtener un chiste
 const API_DAD_JOKE_URL: string = 'https://icanhazdadjoke.com';
@@ -8,17 +9,16 @@ const API_DAD_JOKE_URL: string = 'https://icanhazdadjoke.com';
 const API_DAD_JOKE_HEADER: {} = { headers: {'Accept': 'application/json'}};
 
 // FUNCIÓN EXPORT para hacer la consulta
-export function showDadJoke(jokeList: Joke[]): void {
-    getDadJokeAndUpdate(jokeList);
+export function showDadJoke(): void {
+    getDadJokeAndUpdate();
 }
 
 // ASYNC FUNCTION: lanza una petición a la api dad-joke y muestra los resultados
-async function getDadJokeAndUpdate(jokeList: Joke[]): Promise<void> {
+async function getDadJokeAndUpdate(): Promise<void> {
     try {
         const dadJoke: DadJoke = <DadJoke> await doFetchDadJoke(); 
         (<any>dadJoke).updateUiJoke();
-        jokeList.push(new Joke(dadJoke.joke, Joke.DAD));
-        // console.log(jokeList);
+        pushJoke(new Joke(dadJoke.joke, Joke.DAD));
     } catch (err: any) {
         console.log(err.message);
     }

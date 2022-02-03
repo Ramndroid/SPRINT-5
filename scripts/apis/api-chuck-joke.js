@@ -7,22 +7,22 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import { ChuckJoke } from "../../models/chuckjoke.js";
-import { Joke } from "../../models/joke.js";
+import { ChuckJoke } from "../models/chuckjoke.js";
+import { Joke } from "../models/joke.js";
+import { pushJoke } from "../funciones.js";
 // URL de la API 'https://api.chucknorris.io' para obtener un chiste
 const API_CHUCK_JOKE_URL = 'https://api.chucknorris.io/jokes/random';
 // FUNCIÓN EXPORT para hacer la consulta
-export function showChuckJoke(jokeList) {
-    getChuckJokeAndUpdate(jokeList);
+export function showChuckJoke() {
+    getChuckJokeAndUpdate();
 }
 // ASYNC FUNCTION: lanza una petición a la api chuck-joke y muestra los resultados
-function getChuckJokeAndUpdate(jokeList) {
+function getChuckJokeAndUpdate() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const chuckJoke = yield doFetchChuckJoke();
             chuckJoke.updateUiJoke();
-            jokeList.push(new Joke(chuckJoke.joke, Joke.CHUCK));
-            // console.log(jokeList);
+            pushJoke(new Joke(chuckJoke.joke, Joke.CHUCK));
         }
         catch (err) {
             console.log(err.message);

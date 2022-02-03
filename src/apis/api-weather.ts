@@ -1,4 +1,4 @@
-import { Weather } from "../../models/weather.js";
+import { Weather } from "../models/weather.js";
 import { getGeolocation } from "./api-geo.js";
 
 // URL de la API 'http://api.openweathermap.org' para obtener el clima

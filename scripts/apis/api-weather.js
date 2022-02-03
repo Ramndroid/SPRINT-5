@@ -7,7 +7,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import { Weather } from "../../models/weather.js";
+import { Weather } from "../models/weather.js";
 import { getGeolocation } from "./api-geo.js";
 // URL de la API 'http://api.openweathermap.org' para obtener el clima
 const API_WEATHER_URL = 'http://api.openweathermap.org/data/2.5/weather?';
