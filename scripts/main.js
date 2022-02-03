@@ -1,4 +1,7 @@
 import { getShowAndPrintARandomJoke } from "./apis/querys.js";
+import { getGeolocation } from "./apis/api-geoloca/api-geo.js";
+// TODO: documentar
+getGeolocation();
 // REPORTACUDITS: array de jokes con las valoraciones
 const reportAcudits = [];
 // API DAD-JOKE: recoge un chiste al cargar la web
@@ -17,6 +20,8 @@ btnScore2 === null || btnScore2 === void 0 ? void 0 : btnScore2.addEventListener
 btnScore3 === null || btnScore3 === void 0 ? void 0 : btnScore3.addEventListener('click', () => setScoreCurrentJoke(3));
 // FUNCION: modifica el último elemento de 'reportAcudits'
 function setScoreCurrentJoke(score) {
-    reportAcudits[reportAcudits.length - 1].setScore(score);
-    console.log(reportAcudits);
+    if (reportAcudits.length > 0) {
+        reportAcudits[reportAcudits.length - 1].setScore(score);
+        console.log(reportAcudits);
+    }
 }

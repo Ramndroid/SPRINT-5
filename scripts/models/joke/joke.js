@@ -1,6 +1,6 @@
 // CLASE JOKE: modelo para cada broma obtenida de cualquier api
 export class Joke {
-    constructor(joke, source, score = -1, date = "") {
+    constructor(joke, source, score = 0, date = "") {
         this.joke = joke;
         this.source = source;
         this.score = score;

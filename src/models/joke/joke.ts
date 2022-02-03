@@ -5,7 +5,7 @@ export class Joke implements IJoke {
     constructor (
         public joke: string,
         public source: string,
-        public score: number = -1,
+        public score: number = 0,
         public date:string  = ""
     ) {}
 
