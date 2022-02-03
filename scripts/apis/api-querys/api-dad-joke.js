@@ -7,10 +7,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import { DadJoke } from "../../models/dadjoke/dadjoke.js";
-import { Joke } from "../../models/joke/joke.js";
-import { API_DAD_JOKE_URL } from "./const-api-dad-joke.js";
-import { API_DAD_JOKE_HEADER } from "./const-api-dad-joke.js";
+import { DadJoke } from "../../models/dadjoke.js";
+import { Joke } from "../../models/joke.js";
+// STRING[]: url de la API 'https://icanhazdadjoke.com' para obtener un chiste
+const API_DAD_JOKE_URL = 'https://icanhazdadjoke.com';
+// {HEADERS}: cabecero usado en la API 'https://icanhazdadjoke.com'
+const API_DAD_JOKE_HEADER = { headers: { 'Accept': 'application/json' } };
 // FETCH: api 'https://icanhazdadjoke.com'
 function getADadJoke() {
     return fetch(API_DAD_JOKE_URL, API_DAD_JOKE_HEADER)
@@ -22,9 +24,9 @@ export function showDadJoke(jokeList) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const dadJoke = yield getADadJoke();
-            dadJoke.showJoke();
+            dadJoke.updateUiJoke();
             jokeList.push(new Joke(dadJoke.joke, "dad-joke"));
-            console.log(jokeList);
+            // console.log(jokeList);
         }
         catch (err) {
             console.log(err.message);

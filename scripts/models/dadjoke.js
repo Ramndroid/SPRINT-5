@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { showJoke } from '../../ui/showJoke.js';
+import { updateUiJoke } from '../ui/uiJoke.js';
 // CLASE DADJOKE: modelo para cada broma obtenida de dad-joke
 let DadJoke = class DadJoke {
     constructor(id, joke, status) {
@@ -17,7 +17,7 @@ let DadJoke = class DadJoke {
     }
 };
 DadJoke = __decorate([
-    showJoke,
+    updateUiJoke,
     __metadata("design:paramtypes", [String, String, Number])
 ], DadJoke);
 export { DadJoke };

@@ -1,4 +1,4 @@
-import { IJoke } from "./ijoke.js";
+import { IJoke } from "./interfaces/ijoke.js";
 
 // CLASE JOKE: modelo para cada broma obtenida de cualquier api
 export class Joke implements IJoke {
@@ -6,7 +6,7 @@ export class Joke implements IJoke {
         public joke: string,
         public source: string,
         public score: number = 0,
-        public date:string  = ""
+        public date: string  = ""
     ) {}
 
     setScore(score: number){

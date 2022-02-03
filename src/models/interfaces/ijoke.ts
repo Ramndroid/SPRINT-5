@@ -4,4 +4,5 @@ export interface IJoke {
     source: string;
     score: number;
     date: string;
+    setScore(score: number): void;
 }

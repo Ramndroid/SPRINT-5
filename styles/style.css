@@ -76,6 +76,7 @@ blockquote p {
 }
 
 .chiste {
+    display: none;
     margin: 2rem 8rem;
     line-height: 1.7rem;
     font-size: 1.4rem;

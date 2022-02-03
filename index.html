@@ -11,13 +11,13 @@
 
 <body>
     <div class="weather">
-        <h4>Avui: parcialment ennuvolat</h4>
+        <h4 id="current_weather"></h4>
     </div>
     <div class="contenido">
         <div class="jokes">
             <h1 class="bienvenida">Preparat per riure? 🤣</h1>
             <div>
-                <h4 class="chiste">
+                <h4 class="chiste" id="chiste">
                     <blockquote><p id="joke"></p></blockquote>
                 </h4>
             </div>
@@ -26,7 +26,7 @@
                 <button class="pscore" id="btn_score_2">2</button>
                 <button class="pscore" id="btn_score_3">3</button>
             </div>
-            <button id="btn_next">Següent acudit</button>
+            <button id="btn_next">Descobreix un acudit!</button>
         </div>
     </div>
     <script src="scripts/main.js" type="module"></script>
