@@ -12,3 +12,5 @@ export class Joke {
         this.date = now.toISOString();
     }
 }
+Joke.DAD = "dad";
+Joke.CHUCK = "chuck";

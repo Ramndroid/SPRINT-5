@@ -7,23 +7,21 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import { DadJoke } from "../../models/dadjoke.js";
+import { ChuckJoke } from "../../models/chuckjoke.js";
 import { Joke } from "../../models/joke.js";
-// URL de la API 'https://icanhazdadjoke.com' para obtener un chiste
-const API_DAD_JOKE_URL = 'https://icanhazdadjoke.com';
-// {HEADERS}: cabecero usado en la API 'https://icanhazdadjoke.com'
-const API_DAD_JOKE_HEADER = { headers: { 'Accept': 'application/json' } };
+// URL de la API 'https://api.chucknorris.io' para obtener un chiste
+const API_CHUCK_JOKE_URL = 'https://api.chucknorris.io/jokes/random';
 // FUNCIÓN EXPORT para hacer la consulta
-export function showDadJoke(jokeList) {
-    getDadJokeAndUpdate(jokeList);
+export function showChuckJoke(jokeList) {
+    getChuckJokeAndUpdate(jokeList);
 }
-// ASYNC FUNCTION: lanza una petición a la api dad-joke y muestra los resultados
-function getDadJokeAndUpdate(jokeList) {
+// ASYNC FUNCTION: lanza una petición a la api chuck-joke y muestra los resultados
+function getChuckJokeAndUpdate(jokeList) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const dadJoke = yield doFetchDadJoke();
-            dadJoke.updateUiJoke();
-            jokeList.push(new Joke(dadJoke.joke, Joke.DAD));
+            const chuckJoke = yield doFetchChuckJoke();
+            chuckJoke.updateUiJoke();
+            jokeList.push(new Joke(chuckJoke.joke, Joke.CHUCK));
             // console.log(jokeList);
         }
         catch (err) {
@@ -31,9 +29,9 @@ function getDadJokeAndUpdate(jokeList) {
         }
     });
 }
-// FETCH: api 'https://icanhazdadjoke.com'
-function doFetchDadJoke() {
-    return fetch(API_DAD_JOKE_URL, API_DAD_JOKE_HEADER)
+// FETCH: api 'https://api.chucknorris.io'
+function doFetchChuckJoke() {
+    return fetch(API_CHUCK_JOKE_URL)
         .then((response) => response.json())
-        .then((mjoke) => new DadJoke(mjoke.id, mjoke.joke, mjoke.status));
+        .then((mjoke) => new ChuckJoke(mjoke.id, mjoke.value, mjoke.url, mjoke.icon_url));
 }

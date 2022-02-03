@@ -1,27 +1,32 @@
 import { Weather } from "../../models/weather.js";
 import { getGeolocation } from "./api-geo.js";
 
-const API_WEATHER_URL: string = "http://api.openweathermap.org/data/2.5/weather?";
-const API_WEATHER_KEY: string = "86688be43dc200dacf76d7675b8bf229";
+// URL de la API 'http://api.openweathermap.org' para obtener el clima
+const API_WEATHER_URL: string = 'http://api.openweathermap.org/data/2.5/weather?';
 
-function setWeatherParams(lat: number, lon: number, lang: string): string {
-    let apiUrl: string =
-         API_WEATHER_URL +
-        `appid=${API_WEATHER_KEY}` +
-        `&lat=${lat}` +
-        `&lon=${lon}` +
-        `&lang=${lang}`;
+// APPY KEY:
+const API_WEATHER_KEY: string = '86688be43dc200dacf76d7675b8bf229';
 
-    switch (lang) {
-        case "ca": case "eu": case "sp": case "es": case "pt": case "fr": case "de":
-            apiUrl += `&units=metric`; break;
-        case "en":
-            apiUrl += `&units=imperial`; break;
-    }
-
-    return apiUrl;
+// FUNCIÓN EXPORT para hacer la consulta
+export function showCurrentWeather(lang: string): void {
+    getGeolocation()
+        .then(geoLoca => {
+            getWatherAndUpdate(geoLoca.latitude, geoLoca.longitude, lang);
+        })
+        .catch(error => console.error(error.message));
 }
 
+// ASYNC FUNCTION: lanza una petición a la api climática y muestra los resultados
+async function getWatherAndUpdate(lat: number, lon: number, lang: string): Promise<void> {
+    try {
+        const weather: Weather = <Weather> await doFetchWeather(lat, lon, lang);
+        (<any>weather).updateUiWeather();
+    } catch (err: any) {
+        console.log(err.message);
+    }
+}
+
+// FETCH: api 'http://api.openweathermap.org'
 function doFetchWeather(lat: number, lon: number, lang: string): Promise<Weather> {
     let urlApi: string = setWeatherParams(lat, lon, lang);
 
@@ -45,19 +50,21 @@ function doFetchWeather(lat: number, lon: number, lang: string): Promise<Weather
         ))
 }
 
-async function getWatherAndUpdate(lat: number, lon: number, lang: string): Promise<void> {
-    try {
-        const weather: Weather = <Weather> await doFetchWeather(lat, lon, lang);
-        (<any>weather).updateUiWeather();
-    } catch (err: any) {
-        console.log(err.message);
-    }
-}
+// FUNCIÓN para construir los PARAMS del FETCH
+function setWeatherParams(lat: number, lon: number, lang: string): string {
+    let apiUrl: string =
+         API_WEATHER_URL +
+        `appid=${API_WEATHER_KEY}` +
+        `&lat=${lat}` +
+        `&lon=${lon}` +
+        `&lang=${lang}`;
 
-export function showCurrentWeather(lang: string): void {
-    getGeolocation()
-        .then(geoLoca => {
-            getWatherAndUpdate(geoLoca.latitude, geoLoca.longitude, lang);
-        })
-        .catch(error => console.error(error.message));
+    switch (lang) {
+        case "ca": case "eu": case "sp": case "es": case "pt": case "fr": case "de":
+            apiUrl += `&units=metric`; break;
+        case "en":
+            apiUrl += `&units=imperial`; break;
+    }
+
+    return apiUrl;
 }

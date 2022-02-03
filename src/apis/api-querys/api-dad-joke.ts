@@ -1,27 +1,32 @@
 import { DadJoke } from "../../models/dadjoke.js";
 import { Joke } from "../../models/joke.js";
 
-// STRING[]: url de la API 'https://icanhazdadjoke.com' para obtener un chiste
+// URL de la API 'https://icanhazdadjoke.com' para obtener un chiste
 const API_DAD_JOKE_URL: string = 'https://icanhazdadjoke.com';
 
 // {HEADERS}: cabecero usado en la API 'https://icanhazdadjoke.com'
 const API_DAD_JOKE_HEADER: {} = { headers: {'Accept': 'application/json'}};
 
-// FETCH: api 'https://icanhazdadjoke.com'
-function getADadJoke(): Promise<DadJoke> {
-    return fetch(API_DAD_JOKE_URL, API_DAD_JOKE_HEADER)
-        .then((response) => response.json())
-        .then((mjoke) => new DadJoke(mjoke.id, mjoke.joke, mjoke.status))
+// FUNCIÓN EXPORT para hacer la consulta
+export function showDadJoke(jokeList: Joke[]): void {
+    getDadJokeAndUpdate(jokeList);
 }
 
-// EXPORT ASYNC FUNCTION: lanza una petición a la api dad-joke
-export async function showDadJoke(jokeList: Joke[]): Promise<void> {
+// ASYNC FUNCTION: lanza una petición a la api dad-joke y muestra los resultados
+async function getDadJokeAndUpdate(jokeList: Joke[]): Promise<void> {
     try {
-        const dadJoke: DadJoke = <DadJoke> await getADadJoke(); 
+        const dadJoke: DadJoke = <DadJoke> await doFetchDadJoke(); 
         (<any>dadJoke).updateUiJoke();
-        jokeList.push(new Joke(dadJoke.joke, "dad-joke"));
+        jokeList.push(new Joke(dadJoke.joke, Joke.DAD));
         // console.log(jokeList);
     } catch (err: any) {
         console.log(err.message);
     }
+}
+
+// FETCH: api 'https://icanhazdadjoke.com'
+function doFetchDadJoke(): Promise<DadJoke> {
+    return fetch(API_DAD_JOKE_URL, API_DAD_JOKE_HEADER)
+        .then((response) => response.json())
+        .then((mjoke) => new DadJoke(mjoke.id, mjoke.joke, mjoke.status));
 }
