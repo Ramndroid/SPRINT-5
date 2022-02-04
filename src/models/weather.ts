@@ -39,4 +39,20 @@ export class Weather implements IWeather {
 
         return response;
     }
+
+    showTemp(): string {
+        let response: string = "";
+        switch (this.units) {
+            case "metric": response += `${this.temp.toFixed(0)}º C`; break;
+            case "imperial": response += `${this.temp}º F`; break;
+            default: response += `${this.temp}º K`; break;
+        }
+
+        return response;
+    }
+
+    getIcon(): string {
+        return  `assets/weather/${this.icon.replace('n', 'd')}.png`;
+    }
+    
 }

@@ -46,6 +46,24 @@ let Weather = class Weather {
         }
         return response;
     }
+    showTemp() {
+        let response = "";
+        switch (this.units) {
+            case "metric":
+                response += `${this.temp.toFixed(0)}º C`;
+                break;
+            case "imperial":
+                response += `${this.temp}º F`;
+                break;
+            default:
+                response += `${this.temp}º K`;
+                break;
+        }
+        return response;
+    }
+    getIcon() {
+        return `assets/weather/${this.icon.replace('n', 'd')}.png`;
+    }
 };
 Weather = __decorate([
     updateUiWeather,

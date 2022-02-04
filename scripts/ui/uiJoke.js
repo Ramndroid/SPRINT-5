@@ -6,11 +6,7 @@ export function updateUiJoke(constructor) {
         let elementP = document.getElementById('joke');
         if (elementP != null)
             elementP.innerText = resultToShow;
-        let elementH4 = document.getElementById('chiste');
-        if (elementH4 != null)
-            elementH4.style.display = "block";
-        let elementButton = document.querySelector('#btn_next');
-        if (elementButton != null)
-            elementButton.textContent = "Següent acudit";
+        // let elementButton: Element | null = document.querySelector('#btn_next');
+        // if (elementButton != null) elementButton.textContent = "Següent acudit";
     };
 }

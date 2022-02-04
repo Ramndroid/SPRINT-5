@@ -7,4 +7,6 @@ export interface IWeather {
     units: string;
     lang: string;
     getTemp(): string;
+    getIcon(): string;
+    showTemp(): string;
 }

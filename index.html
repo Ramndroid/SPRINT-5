@@ -5,31 +5,59 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sprint 5 - Exercici 5</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <title>Sprint 5 - Exercici 6</title>
     <link rel="stylesheet" href="/styles/style.css">
 </head>
 
 <body>
-    <div class="weather">
-        <h4 id="current_weather"></h4>
-    </div>
-    <div class="contenido">
-        <div class="jokes">
-            <h1 class="bienvenida">Preparat per riure? 🤣</h1>
-            <div>
-                <h4 id="chiste">
-                    <blockquote><p id="joke"></p></blockquote>
-                </h4>
-            </div>
-            <div class="score">
-                <button class="pscore" id="btn_score_1">1</button>
-                <button class="pscore" id="btn_score_2">2</button>
-                <button class="pscore" id="btn_score_3">3</button>
-            </div>
-            <button id="btn_next">Descobreix un acudit!</button>
+    <main>
+        <!-- WEATHER -->
+        <div class="contenedor-clima">
+            <img id="image-weather" alt="">
+            <h4 id="current_weather"></h4>
         </div>
-    </div>
-    <script src="scripts/main.js" type="module"></script>
+        <!-- DOS MINI BLOBS -->
+        <div class="miniblob1"></div>
+        <div class="miniblob2"></div>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <div class="contenedor-principal">
+            <div class="blob">
+                <div class="contenedor-joke">
+                    <div class="joke-title">
+                        <h1>Preparat per riure?</h1>
+                    </div>
+                    <div class="joke-joke">
+                        <h4>
+                            <!-- JOKE -->
+                            <blockquote><p id="joke">ahhh</p></blockquote>
+                        </h4>
+                    </div>
+                    <!-- SCORE BUTTONS -->
+                    <div class="joke-score">
+                        <button class="one-point-button" id="btn_score_1">
+                            <span class="one-point-button-face"></span>
+                        </button>
+                        <button class="two-point-button" id="btn_score_2">
+                            <span class="two-point-button-face"></span>
+                        </button>
+                        <button class="three-point-button" id="btn_score_3">
+                            <span class="three-point-button-face"></span>
+                        </button>
+                    </div>
+                    <!-- NEXT JOKE -->
+                    <div class="joke-next">
+                        <button class="capsula-button" id="btn_next">
+                            <span class="capsula-button-text">Següent acudit!</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- SCRIPT -->
+        <script src="scripts/main.js" type="module"></script>
+    </main>
 </body>
 
 </html>
