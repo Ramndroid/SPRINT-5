@@ -1,34 +1,42 @@
+import { showAnotherBlobs } from "./uiBlob.js";
+
 export function initButtons(score: Function, joke: Function): void {
-    // Botones '1' '2' '3' para la puntuación de las bromas
+    setNextButton(score, joke);
+}
+
+// Variable usada para determinar si es la primera configuración de los botones
+let firstConfig = true;
+
+function setNextButton(score: Function, joke: Function): void {
+    const btnNext: HTMLElement | null = document.querySelector('#btn_next');
+    btnNext?.addEventListener('click', () => { 
+        joke(); 
+        showAnotherBlobs(); 
+        if (firstConfig) {
+            firstConfig = false;
+            setNextJokeButtonText();
+            setScoreButtons(score);
+            setVisibilityScoreButtons();
+        }
+    });
+}
+
+// Set text button next joke
+function setNextJokeButtonText(): void {
+    const btnNextText: HTMLElement | null = document.getElementById('btn_next_text');
+    if (btnNextText != null) btnNextText.innerText = "Següent acudit!";
+}
+
+// Botones '1' '2' '3' para la puntuación de las bromas
+function setScoreButtons(score: Function): void {
     for (let i = 1; i <= 3; i++) {
         const btnScore: Element | null = document.querySelector(`#btn_score_${i}`);
         btnScore?.addEventListener('click', () => score(i));
     }
-
-    // Botón para lanzar una petición de una broma
-    const btnNext: Element | null = document.querySelector('#btn_next');
-    btnNext?.addEventListener('click', () => {
-
-        joke();
-
-        let aleatorio: number = randomIntFromInterval(1, 20);
-        let urlblob: string = `../assets/blobs/blob-${aleatorio}.svg`;
-        const divBlob: Element | null = document.querySelector('.blob');
-        divBlob?.setAttribute("style", `background-image: url(${urlblob})`);
-
-        let aleatorioMiniBlob1: number = randomIntFromInterval(1, 20);
-        let urlMiniBlob1: string = `../assets/blobs/blob-${aleatorioMiniBlob1}.svg`;
-        const miniBlob1: Element | null = document.querySelector('.miniblob1');
-        miniBlob1?.setAttribute("style", `background-image: url(${urlMiniBlob1})`);
-
-        let aleatorioMiniBlob2: number = randomIntFromInterval(1, 20);
-        let urlMiniBlob2: string = `../assets/blobs/blob-${aleatorioMiniBlob2}.svg`;
-        const miniBlob2: Element | null = document.querySelector('.miniblob2');
-        miniBlob2?.setAttribute("style", `background-image: url(${urlMiniBlob2})`);
-        
-    });
 }
 
-function randomIntFromInterval(min: number, max: number) {
-    return Math.floor(Math.random() * (max - min + 1) + min)
+// Modifica la visibilidad de los botones score
+function setVisibilityScoreButtons(): void {
+    let element: HTMLElement | null = document.querySelector('#joke-score');
+    element?.classList.replace("joke-score-off", "joke-score-on");
 }

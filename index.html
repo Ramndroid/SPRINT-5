@@ -13,29 +13,29 @@
 <body>
     <main>
         <!-- WEATHER -->
-        <div class="contenedor-clima">
+        <div class="contenedor-clima-off" id="weather">
             <img id="image-weather" alt="">
             <h4 id="current_weather"></h4>
         </div>
         <!-- DOS MINI BLOBS -->
-        <div class="miniblob1"></div>
-        <div class="miniblob2"></div>
+        <div class="blob-mini blob-mini-1" id="blob-bg-1"></div>
+        <div class="blob-mini blob-mini-2" id="blob-bg-2"></div>
 
         <!-- CONTENIDO PRINCIPAL -->
         <div class="contenedor-principal">
-            <div class="blob">
+            <div class="blob blob-bg" id ="blob-bg">
                 <div class="contenedor-joke">
                     <div class="joke-title">
                         <h1>Preparat per riure?</h1>
                     </div>
-                    <div class="joke-joke">
+                    <div class="joke-joke-off" id="joke-div">
                         <h4>
                             <!-- JOKE -->
-                            <blockquote><p id="joke">ahhh</p></blockquote>
+                            <blockquote><p id="joke">LOL</p></blockquote>
                         </h4>
                     </div>
                     <!-- SCORE BUTTONS -->
-                    <div class="joke-score">
+                    <div class="joke-score-off" id="joke-score">
                         <button class="one-point-button" id="btn_score_1">
                             <span class="one-point-button-face"></span>
                         </button>
@@ -49,7 +49,7 @@
                     <!-- NEXT JOKE -->
                     <div class="joke-next">
                         <button class="capsula-button" id="btn_next">
-                            <span class="capsula-button-text">Següent acudit!</span>
+                            <span class="capsula-button-text" id="btn_next_text">Sí, vull un acudit!</span>
                         </button>
                     </div>
                 </div>

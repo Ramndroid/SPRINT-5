@@ -15,16 +15,14 @@ const API_DAD_JOKE_URL = 'https://icanhazdadjoke.com';
 // {HEADERS}: cabecero usado en la API 'https://icanhazdadjoke.com'
 const API_DAD_JOKE_HEADER = { headers: { 'Accept': 'application/json' } };
 // FUNCIÓN EXPORT para hacer la consulta
-export function showDadJoke() {
-    getDadJokeAndUpdate();
-}
+export const showDadJoke = () => getDadJokeAndUpdate();
 // ASYNC FUNCTION: lanza una petición a la api dad-joke y muestra los resultados
 function getDadJokeAndUpdate() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const dadJoke = yield doFetchDadJoke();
-            dadJoke.updateUiJoke();
             pushJoke(new Joke(dadJoke.joke, Joke.DAD));
+            dadJoke.updateUiJoke();
         }
         catch (err) {
             console.log(err.message);

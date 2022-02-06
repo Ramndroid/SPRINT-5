@@ -9,16 +9,14 @@ const API_DAD_JOKE_URL: string = 'https://icanhazdadjoke.com';
 const API_DAD_JOKE_HEADER: {} = { headers: {'Accept': 'application/json'}};
 
 // FUNCIÓN EXPORT para hacer la consulta
-export function showDadJoke(): void {
-    getDadJokeAndUpdate();
-}
+export const showDadJoke = () => getDadJokeAndUpdate();
 
 // ASYNC FUNCTION: lanza una petición a la api dad-joke y muestra los resultados
 async function getDadJokeAndUpdate(): Promise<void> {
     try {
         const dadJoke: DadJoke = <DadJoke> await doFetchDadJoke(); 
-        (<any>dadJoke).updateUiJoke();
         pushJoke(new Joke(dadJoke.joke, Joke.DAD));
+        (<any>dadJoke).updateUiJoke();
     } catch (err: any) {
         console.log(err.message);
     }

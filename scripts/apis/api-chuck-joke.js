@@ -13,16 +13,14 @@ import { pushJoke } from "../funciones.js";
 // URL de la API 'https://api.chucknorris.io' para obtener un chiste
 const API_CHUCK_JOKE_URL = 'https://api.chucknorris.io/jokes/random';
 // FUNCIÓN EXPORT para hacer la consulta
-export function showChuckJoke() {
-    getChuckJokeAndUpdate();
-}
+export const showChuckJoke = () => getChuckJokeAndUpdate();
 // ASYNC FUNCTION: lanza una petición a la api chuck-joke y muestra los resultados
 function getChuckJokeAndUpdate() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const chuckJoke = yield doFetchChuckJoke();
-            chuckJoke.updateUiJoke();
             pushJoke(new Joke(chuckJoke.joke, Joke.CHUCK));
+            chuckJoke.updateUiJoke();
         }
         catch (err) {
             console.log(err.message);
