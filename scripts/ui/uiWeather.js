@@ -11,16 +11,16 @@ function setHTML(resultToShow, iconToShow) {
     setHTMLCurrentWeatherVisible();
 }
 function setHTMLCurrentTemp(resultToShow) {
-    let elementDIVH4 = document.getElementById('current_weather');
+    const elementDIVH4 = document.getElementById('current_weather');
     if (elementDIVH4 != null)
         elementDIVH4.innerText = resultToShow;
 }
 function setHTMLCurrentTempIcon(iconToShow) {
-    let imageWeather = document.querySelector("#image-weather");
+    const imageWeather = document.querySelector("#image-weather");
     if (imageWeather != null)
         imageWeather.src = iconToShow;
 }
 function setHTMLCurrentWeatherVisible() {
-    let element = document.querySelector('#weather');
+    const element = document.querySelector('#weather');
     element === null || element === void 0 ? void 0 : element.classList.replace("contenedor-clima-off", "contenedor-clima-on");
 }

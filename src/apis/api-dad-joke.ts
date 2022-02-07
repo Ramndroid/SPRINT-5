@@ -1,6 +1,6 @@
 import { DadJoke } from "../models/dadjoke.js";
 import { Joke } from "../models/joke.js";
-import { pushJoke } from "../funciones.js";
+import { pushJoke as funcionesPushJoke  } from "../funciones.js";
 
 // URL de la API 'https://icanhazdadjoke.com' para obtener un chiste
 const API_DAD_JOKE_URL: string = 'https://icanhazdadjoke.com';
@@ -15,7 +15,7 @@ export const showDadJoke = () => getDadJokeAndUpdate();
 async function getDadJokeAndUpdate(): Promise<void> {
     try {
         const dadJoke: DadJoke = <DadJoke> await doFetchDadJoke(); 
-        pushJoke(new Joke(dadJoke.joke, Joke.DAD));
+        funcionesPushJoke(new Joke(dadJoke.joke, Joke.DAD));
         (<any>dadJoke).updateUiJoke();
     } catch (err: any) {
         console.log(err.message);

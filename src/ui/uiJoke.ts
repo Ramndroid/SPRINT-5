@@ -12,12 +12,12 @@ function setHTML(resultToShow: string): void {
 }
 
 function setHTMLJokeText(resultToShow: string): void {
-    let elementP: HTMLElement | null = document.getElementById('joke');
+    const elementP: HTMLElement | null = document.getElementById('joke');
     if (elementP != null) 
         elementP.innerText = resultToShow;
 }
 
 function setHTMLCurrentJokeVisible(): void {
-    let element: HTMLElement | null = document.querySelector('#joke-div');
+    const element: HTMLElement | null = document.querySelector('#joke-div');
     element?.classList.replace("joke-joke-off", "joke-joke-on");
 }

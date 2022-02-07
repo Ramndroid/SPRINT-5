@@ -52,7 +52,8 @@ export class Weather implements IWeather {
     }
 
     getIcon(): string {
-        return  `assets/weather/${this.icon.replace('n', 'd')}.png`;
+        return  `assets/weather/${this.icon.replace('n', 'd')}.svg`;
+        // return  `assets/weather/50d.svg`; //// test svg
     }
     
 }

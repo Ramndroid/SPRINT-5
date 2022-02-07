@@ -1,4 +1,5 @@
 import { getRandomInRange } from "../utils/tools.js";
+import { getRandomNumFromIntervalWithExclusion } from "../utils/tools.js";
 
 // Variables que corresponden al número máximo de imagenes que haya para cada 'blob'
 const maxRandomBgBlob: number = 15;
@@ -30,19 +31,10 @@ function changeClassToElement (
     targetClass: string,
     classList: string[]): void {
 
-    let element: HTMLElement | null = document.getElementById(idElement);
-    let aleatorio: number = getRandomNumFromIntervalWithExclusion(1, maxReferenceIncluded, currentReferenceBG);
-    let newClass: string = `${targetClass}-${aleatorio}`;
+    const element: HTMLElement | null = document.getElementById(idElement);
+    const aleatorio: number = getRandomNumFromIntervalWithExclusion(1, maxReferenceIncluded, currentReferenceBG);
+    const newClass: string = `${targetClass}-${aleatorio}`;
     element?.classList.forEach((clase, _) => element?.classList.remove(clase));
     classList.forEach(it => element?.classList.add(it));
     element?.classList.add(newClass);
-}
-
-function getRandomNumFromIntervalWithExclusion (min: number, max: number, excluded: number): number {
-    let nextRandom = getRandomInRange(min, max);
-
-    if (nextRandom != excluded)
-        return nextRandom;
-    else 
-        return getRandomNumFromIntervalWithExclusion(min, max, nextRandom);
 }

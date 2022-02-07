@@ -15,7 +15,7 @@ export class Joke implements IJoke {
 
     setScore(score: number){
         this.score = score;
-        let now = new Date();
+        const now = new Date();
         this.date = now.toISOString();
     }
 }

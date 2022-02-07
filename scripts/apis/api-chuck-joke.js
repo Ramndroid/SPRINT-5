@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 import { ChuckJoke } from "../models/chuckjoke.js";
 import { Joke } from "../models/joke.js";
-import { pushJoke } from "../funciones.js";
+import { pushJoke as funcionesPushJoke } from "../funciones.js";
 // URL de la API 'https://api.chucknorris.io' para obtener un chiste
 const API_CHUCK_JOKE_URL = 'https://api.chucknorris.io/jokes/random';
 // FUNCIÓN EXPORT para hacer la consulta
@@ -19,7 +19,7 @@ function getChuckJokeAndUpdate() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const chuckJoke = yield doFetchChuckJoke();
-            pushJoke(new Joke(chuckJoke.joke, Joke.CHUCK));
+            funcionesPushJoke(new Joke(chuckJoke.joke, Joke.CHUCK));
             chuckJoke.updateUiJoke();
         }
         catch (err) {

@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 import { DadJoke } from "../models/dadjoke.js";
 import { Joke } from "../models/joke.js";
-import { pushJoke } from "../funciones.js";
+import { pushJoke as funcionesPushJoke } from "../funciones.js";
 // URL de la API 'https://icanhazdadjoke.com' para obtener un chiste
 const API_DAD_JOKE_URL = 'https://icanhazdadjoke.com';
 // {HEADERS}: cabecero usado en la API 'https://icanhazdadjoke.com'
@@ -21,7 +21,7 @@ function getDadJokeAndUpdate() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const dadJoke = yield doFetchDadJoke();
-            pushJoke(new Joke(dadJoke.joke, Joke.DAD));
+            funcionesPushJoke(new Joke(dadJoke.joke, Joke.DAD));
             dadJoke.updateUiJoke();
         }
         catch (err) {

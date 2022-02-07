@@ -1,5 +1,5 @@
 import { showAnotherBlobs } from "./uiBlob.js";
-export function initButtons(score, joke) {
+export function configAllButtons(score, joke) {
     setNextButton(score, joke);
 }
 // Variable usada para determinar si es la primera configuración de los botones
@@ -32,6 +32,6 @@ function setScoreButtons(score) {
 }
 // Modifica la visibilidad de los botones score
 function setVisibilityScoreButtons() {
-    let element = document.querySelector('#joke-score');
+    const element = document.querySelector('#joke-score');
     element === null || element === void 0 ? void 0 : element.classList.replace("joke-score-off", "joke-score-on");
 }

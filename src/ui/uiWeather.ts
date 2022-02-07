@@ -13,18 +13,18 @@ function setHTML(resultToShow: string, iconToShow: string): void {
 }
 
 function setHTMLCurrentTemp(resultToShow: string): void {
-    let elementDIVH4: HTMLElement | null = document.getElementById('current_weather');
+    const elementDIVH4: HTMLElement | null = document.getElementById('current_weather');
     if (elementDIVH4 != null)
         elementDIVH4.innerText = resultToShow;
 }
 
 function setHTMLCurrentTempIcon(iconToShow: string): void {
-    let imageWeather: HTMLImageElement | null = document.querySelector("#image-weather");
+    const imageWeather: HTMLImageElement | null = document.querySelector("#image-weather");
     if (imageWeather != null)
         imageWeather.src = iconToShow;
 }
 
 function setHTMLCurrentWeatherVisible(): void {
-    let element: HTMLElement | null = document.querySelector('#weather');
+    const element: HTMLElement | null = document.querySelector('#weather');
     element?.classList.replace("contenedor-clima-off", "contenedor-clima-on");
 }

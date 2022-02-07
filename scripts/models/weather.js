@@ -62,7 +62,8 @@ let Weather = class Weather {
         return response;
     }
     getIcon() {
-        return `assets/weather/${this.icon.replace('n', 'd')}.png`;
+        return `assets/weather/${this.icon.replace('n', 'd')}.svg`;
+        // return  `assets/weather/50d.svg`; //// test svg
     }
 };
 Weather = __decorate([

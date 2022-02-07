@@ -8,7 +8,7 @@ export class Joke {
     }
     setScore(score) {
         this.score = score;
-        let now = new Date();
+        const now = new Date();
         this.date = now.toISOString();
     }
 }

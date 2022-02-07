@@ -10,11 +10,11 @@ function setHTML(resultToShow) {
     setHTMLCurrentJokeVisible();
 }
 function setHTMLJokeText(resultToShow) {
-    let elementP = document.getElementById('joke');
+    const elementP = document.getElementById('joke');
     if (elementP != null)
         elementP.innerText = resultToShow;
 }
 function setHTMLCurrentJokeVisible() {
-    let element = document.querySelector('#joke-div');
+    const element = document.querySelector('#joke-div');
     element === null || element === void 0 ? void 0 : element.classList.replace("joke-joke-off", "joke-joke-on");
 }
