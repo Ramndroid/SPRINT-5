@@ -1,0 +1,365 @@
+* {
+  box-sizing: border-box;
+  margin: 0 auto;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.contenedor-principal {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contenedor-clima-off {
+  display: none;
+}
+
+.contenedor-clima-on {
+  width: 150px;
+  height: 100px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#image-weather {
+  width: 50%;
+  height: auto;
+}
+
+#current_weather {
+  font-size: 1.3rem;
+}
+
+#current_weather:after {
+  content: "";
+  background-color: black;
+  position: absolute;
+  width: 3px;
+  height: 40px;
+  top: 30%;
+  left: 55%;
+}
+
+.contenedor-joke {
+  height: auto;
+  width: 70%;
+  display: grid;
+  grid-template-areas:
+      'titulo'
+      'chiste'
+      'puntuaciones'
+      'siguiente';
+  grid-template-rows: 5% auto 5% 5%;
+}
+
+.joke-title {
+  grid-area: titulo;
+  text-align: center;
+  color: white;
+  text-shadow: 0px 3px 6px #15228546;
+  font-size: 0.9rem;
+}
+
+.joke-joke-off {
+  display: none;
+}
+
+.joke-joke-on {
+  grid-area: chiste;
+  line-height: 1.7rem;
+  font-size: 1.0rem;
+  letter-spacing: 0.1rem;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+blockquote {
+  font-style: italic;
+  border: none;
+  quotes: "\201C""\201D""\2018""\2019";
+  display: block;
+  text-align: center;
+}
+
+blockquote:before {
+  content: open-quote;
+  color: white;
+  font-size: 3em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+
+blockquote:after {
+  content: close-quote;
+  color: white;
+  font-size: 3em;
+  line-height: 0.1em;
+  vertical-align: -0.5em;
+}
+
+blockquote p {
+  display: inline;
+}
+
+.joke-score-off {
+  display: none;
+}
+
+.joke-score-on {
+  grid-area: puntuaciones;
+  display: flex;
+  gap: 2rem;
+}
+
+.joke-next {
+  grid-area: siguiente;
+}
+
+.one-point-button {
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border: none;
+}
+
+.one-point-button-face {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  right: 3.2px;
+  bottom: 3.2px;
+  left: 0;
+  background-image: url(/assets/faces/face-1.svg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.one-point-button::before {
+  content: "";
+  position: absolute;
+  background-image: url(/assets/faces/face-bg1.svg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  top: 3.2px;
+  right: 0;
+  bottom: 0;
+  left: 3.2px;
+}
+
+.one-point-button:active .one-point-button-face {
+  transform: translateX(3.2px) translateY(3.2px);
+}
+
+.two-point-button {
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border: none;
+}
+
+.two-point-button-face {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  right: 3.2px;
+  bottom: 3.2px;
+  left: 0;
+  background-image: url(/assets/faces/face-2.svg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.two-point-button::before {
+  content: "";
+  position: absolute;
+  background-image: url(/assets/faces/face-bg2.svg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  top: 3.2px;
+  right: 0;
+  bottom: 0;
+  left: 3.2px;
+}
+
+.two-point-button:active .two-point-button-face {
+  transform: translateX(3.2px) translateY(3.2px);
+}
+
+.three-point-button {
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border: none;
+}
+
+.three-point-button-face {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  right: 3.2px;
+  bottom: 3.2px;
+  left: 0;
+  background-image: url(/assets/faces/face-3.svg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.three-point-button::before {
+  content: "";
+  position: absolute;
+  background-image: url(/assets/faces/face-bg3.svg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  top: 3.2px;
+  right: 0;
+  bottom: 0;
+  left: 3.2px;
+}
+
+.three-point-button:active .three-point-button-face {
+  transform: translateX(3.2px) translateY(3.2px);
+}
+
+.capsula-button {
+  margin-top: 60px;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+  width: 270px;
+  height: 80px;
+  border: none;
+  color: black;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.capsula-button-text {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  right: 4px;
+  bottom: 4px;
+  left: 0;
+  background-image: url(/assets/btn/capsula-border.svg);
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.capsula-button::before {
+  content: "";
+  position: absolute;
+  background-image: url(/assets/btn/capsula-bg.svg);
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  top: 4px;
+  right: 0;
+  bottom: 0;
+  left: 4px;
+}
+
+.capsula-button:active .capsula-button-text {
+  transform: translateX(4px) translateY(4px);
+}
+
+.blob {
+  width: 800px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.blob-bg {
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center; 
+}
+
+.blob-bg-1 { background-image: url(/assets/blobs/blob-bg-1.svg); }
+.blob-bg-2 { background-image: url(/assets/blobs/blob-bg-2.svg); }
+.blob-bg-3 { background-image: url(/assets/blobs/blob-bg-3.svg); }
+.blob-bg-4 { background-image: url(/assets/blobs/blob-bg-4.svg); }
+.blob-bg-5 { background-image: url(/assets/blobs/blob-bg-5.svg); }
+.blob-bg-6 { background-image: url(/assets/blobs/blob-bg-6.svg); }
+.blob-bg-7 { background-image: url(/assets/blobs/blob-bg-7.svg); }
+.blob-bg-8 { background-image: url(/assets/blobs/blob-bg-8.svg); }
+.blob-bg-9 { background-image: url(/assets/blobs/blob-bg-9.svg); }
+.blob-bg-10 { background-image: url(/assets/blobs/blob-bg-10.svg); }
+.blob-bg-11 { background-image: url(/assets/blobs/blob-bg-11.svg); }
+.blob-bg-12 { background-image: url(/assets/blobs/blob-bg-12.svg); }
+.blob-bg-13 { background-image: url(/assets/blobs/blob-bg-13.svg); }
+.blob-bg-14 { background-image: url(/assets/blobs/blob-bg-14.svg); }
+.blob-bg-15 { background-image: url(/assets/blobs/blob-bg-15.svg); }
+
+.blob-mini {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+.blob-mini-1 {
+  bottom: 20px;
+  left: 20px;
+}
+
+.blob-mini-2 {
+  top: 20px;
+  right: 20px;
+}
+
+.blob-mini-bg-1 { background-image: url(/assets/blobs/blob-1.svg); }
+.blob-mini-bg-2 { background-image: url(/assets/blobs/blob-2.svg); }
+.blob-mini-bg-3 { background-image: url(/assets/blobs/blob-3.svg); }
+.blob-mini-bg-4 { background-image: url(/assets/blobs/blob-4.svg); }
+.blob-mini-bg-5 { background-image: url(/assets/blobs/blob-5.svg); }
+.blob-mini-bg-6 { background-image: url(/assets/blobs/blob-6.svg); }
+.blob-mini-bg-7 { background-image: url(/assets/blobs/blob-7.svg); }
+.blob-mini-bg-8 { background-image: url(/assets/blobs/blob-8.svg); }
+.blob-mini-bg-9 { background-image: url(/assets/blobs/blob-9.svg); }
+.blob-mini-bg-10 { background-image: url(/assets/blobs/blob-10.svg); }
+.blob-mini-bg-11 { background-image: url(/assets/blobs/blob-11.svg); }
+.blob-mini-bg-12 { background-image: url(/assets/blobs/blob-12.svg); }
+.blob-mini-bg-13 { background-image: url(/assets/blobs/blob-13.svg); }
+.blob-mini-bg-14 { background-image: url(/assets/blobs/blob-14.svg); }
+.blob-mini-bg-15 { background-image: url(/assets/blobs/blob-15.svg); }
+.blob-mini-bg-16 { background-image: url(/assets/blobs/blob-16.svg); }
+.blob-mini-bg-17 { background-image: url(/assets/blobs/blob-17.svg); }
+.blob-mini-bg-18 { background-image: url(/assets/blobs/blob-18.svg); }
+.blob-mini-bg-19 { background-image: url(/assets/blobs/blob-19.svg); }
+.blob-mini-bg-20 { background-image: url(/assets/blobs/blob-20.svg); }

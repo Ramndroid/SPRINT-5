@@ -1,12 +1,63 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sprint 5 - Acudits</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <title>Sprint 5 - Exercici 6</title>
+    <link rel="stylesheet" href="/styles/style.css">
 </head>
+
 <body>
-    
+    <main>
+        <!-- WEATHER -->
+        <div class="contenedor-clima-off" id="weather">
+            <img id="image-weather" alt="">
+            <h4 id="current_weather"></h4>
+        </div>
+        <!-- DOS MINI BLOBS -->
+        <div class="blob-mini blob-mini-1" id="blob-bg-1"></div>
+        <div class="blob-mini blob-mini-2" id="blob-bg-2"></div>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <div class="contenedor-principal">
+            <div class="blob blob-bg" id ="blob-bg">
+                <div class="contenedor-joke">
+                    <div class="joke-title">
+                        <h1>Preparat per riure?</h1>
+                    </div>
+                    <div class="joke-joke-off" id="joke-div">
+                        <h4>
+                            <!-- JOKE -->
+                            <blockquote><p id="joke">LOL</p></blockquote>
+                        </h4>
+                    </div>
+                    <!-- SCORE BUTTONS -->
+                    <div class="joke-score-off" id="joke-score">
+                        <button class="one-point-button" id="btn_score_1">
+                            <span class="one-point-button-face"></span>
+                        </button>
+                        <button class="two-point-button" id="btn_score_2">
+                            <span class="two-point-button-face"></span>
+                        </button>
+                        <button class="three-point-button" id="btn_score_3">
+                            <span class="three-point-button-face"></span>
+                        </button>
+                    </div>
+                    <!-- NEXT JOKE -->
+                    <div class="joke-next">
+                        <button class="capsula-button" id="btn_next">
+                            <span class="capsula-button-text" id="btn_next_text">Sí, vull un acudit!</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- SCRIPT -->
+        <script src="scripts/main.js" type="module"></script>
+    </main>
 </body>
+
 </html>
