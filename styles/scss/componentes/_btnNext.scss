@@ -1,0 +1,55 @@
+@import "./btnVAR";
+//////////////////////////////////// PRINCIPALES VARIABLES 
+$bgSize         : 80%;
+$capsulaContorno: url(/assets/btn/capsula-border.svg);
+$capsulaRelleno : url(/assets/btn/capsula-bg.svg);
+///////////////////////////////////////////////////////////////
+
+.joke-next {
+  grid-area: siguiente;
+}
+
+.capsula-button {
+  margin-top : 60px;
+  background : transparent;
+  cursor     : pointer;
+  position   : relative;
+  width      : 270px;
+  height     : 80px;
+  border     : none;
+  color      : black;
+  font-weight: bold;
+  font-size  : 0.9rem;
+}
+
+.capsula-button-text {
+  position           : absolute;
+  display            : flex;
+  align-items        : center;
+  justify-content    : center;
+  top                : 0;
+  right              : $desplazamiento;
+  bottom             : $desplazamiento;
+  left               : 0;
+  background-image   : $capsulaContorno;
+  background-size    : $bgSize;
+  background-repeat  : no-repeat;
+  background-position: center center;
+}
+
+.capsula-button::before {
+  content            : "";
+  position           : absolute;
+  background-image   : $capsulaRelleno;
+  background-size    : $bgSize;
+  background-repeat  : no-repeat;
+  background-position: center center;
+  top                : $desplazamiento;
+  right              : 0;
+  bottom             : 0;
+  left               : $desplazamiento;
+}
+
+.capsula-button:active .capsula-button-text {
+  transform: translateX($desplazamiento) translateY($desplazamiento);
+}
