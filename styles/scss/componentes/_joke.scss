@@ -1,0 +1,49 @@
+//////////////////////////////////// PRINCIPALES VARIABLES 
+$tamanoLetra   : 1.0rem;
+$espaciadoLetra: 0.1rem;
+$alturaLinea   : 1.7rem;
+///////////////////////////////////////////////////////////////
+
+.joke-joke-off {
+  display: none;
+}
+
+.joke-joke-on {
+  grid-area      : chiste;
+  font-size      : $tamanoLetra;
+  line-height    : $alturaLinea;
+  letter-spacing : $espaciadoLetra;
+  color          : white;
+  display        : flex;
+  justify-content: center;
+  align-items    : center;
+}
+
+blockquote {
+  font-style: italic;
+  border    : none;
+  quotes    : "\201C""\201D""\2018""\2019";
+  display   : block;
+  text-align: center;
+
+  ::before {
+    content       : open-quote;
+    color         : white;
+    font-size     : 3em;
+    line-height   : 0.1em;
+    margin-right  : 0.25em;
+    vertical-align: -0.4em;
+  }
+
+  ::after {
+    content       : close-quote;
+    color         : white;
+    font-size     : 3em;
+    line-height   : 0.1em;
+    vertical-align: -0.5em;
+  }
+
+  p {
+    display: inline;
+  }
+}

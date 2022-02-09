@@ -1,0 +1,42 @@
+//////////////////////////////////// PRINCIPALES VARIABLES
+$fontTempSize  : 1.3rem;
+$fontTempColor : black;
+$colorSeparador: black;
+///////////////////////////////////////////////////////////////
+
+.contenedor-clima-off {
+  display: none;
+}
+
+.contenedor-clima-on {
+  width          : 150px;
+  height         : 100px;
+  position       : absolute;
+  top            : 20px;
+  left           : 20px;
+  z-index        : 1;
+  display        : flex;
+  flex-direction : row;
+  justify-content: center;
+  align-items    : center;
+}
+
+#image-weather {
+  width : 50%;
+  height: auto;
+}
+
+#current_weather {
+  font-size: $fontTempSize;
+  color    : $fontTempColor;
+}
+
+#current_weather:after {
+  content         : "";
+  width           : 3px;
+  height          : 40px;
+  position        : absolute;
+  top             : 30%;
+  left            : 55%;
+  background-color: $colorSeparador;
+}

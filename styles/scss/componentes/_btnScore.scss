@@ -1,0 +1,88 @@
+@import "./btnVAR";
+//////////////////////////////////// PRINCIPALES VARIABLES 
+$caraTristeContorno: url(/assets/faces/face-1.svg);
+$caraTristeRelleno : url(/assets/faces/face-bg1.svg);
+
+$caraNeutroContorno: url(/assets/faces/face-2.svg);
+$caraNeutroRelleno : url(/assets/faces/face-bg2.svg);
+
+$caraRisaContorno: url(/assets/faces/face-3.svg);
+$caraRisaRelleno : url(/assets/faces/face-bg3.svg);
+///////////////////////////////////////////////////////////////
+
+.joke-score-off {
+  display: none;
+}
+
+.joke-score-on {
+  grid-area: puntuaciones;
+  display  : flex;
+  gap      : 2rem;
+}
+
+
+@for $i from 1 through 3 {
+  $nombreClase: "";
+  $svgContorno: "";
+  $svgRelleno : "";
+
+  @if ($i==1) {
+    $nombreClase: "one";
+    $svgContorno: $caraTristeContorno;
+    $svgRelleno : $caraTristeRelleno;
+  }
+
+  @else if ($i==2) {
+    $nombreClase: "two";
+    $svgContorno: $caraNeutroContorno;
+    $svgRelleno : $caraNeutroRelleno;
+  }
+
+  @else if ($i==3) {
+    $nombreClase: "three";
+    $svgContorno: $caraRisaContorno;
+    $svgRelleno : $caraRisaRelleno;
+  }
+
+  .#{$nombreClase}-point-button {
+    background: transparent;
+    cursor    : pointer;
+    position  : relative;
+    width     : 50px;
+    height    : 50px;
+    border    : none;
+  }
+
+  .#{$nombreClase}-point-button-face {
+    position           : absolute;
+    display            : flex;
+    align-items        : center;
+    justify-content    : center;
+    top                : 0;
+    right              : $desplazamiento;
+    bottom             : $desplazamiento;
+    left               : 0;
+    background-image   : $svgContorno;
+    background-size    : 100%;
+    background-repeat  : no-repeat;
+    background-position: center center;
+  }
+
+  .#{$nombreClase}-point-button::before {
+    content            : "";
+    position           : absolute;
+    background-image   : $svgRelleno;
+    background-size    : 100%;
+    background-repeat  : no-repeat;
+    background-position: center center;
+    top                : $desplazamiento;
+    right              : 0;
+    bottom             : 0;
+    left               : $desplazamiento;
+  }
+
+  .#{$nombreClase}-point-button:active .#{$nombreClase}-point-button-face {
+    transform: translateX($desplazamiento) translateY($desplazamiento);
+  }
+
+}

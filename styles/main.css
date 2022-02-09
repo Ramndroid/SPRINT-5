@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   box-sizing: border-box;
   margin: 0 auto;
@@ -10,6 +11,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.contenedor-joke {
+  height: auto;
+  width: 70%;
+  display: grid;
+  grid-template-areas: "titulo" "chiste" "puntuaciones" "siguiente";
+  grid-template-rows: 5% auto 5% 5%;
 }
 
 .contenedor-clima-off {
@@ -36,36 +45,25 @@
 
 #current_weather {
   font-size: 1.3rem;
+  color: black;
 }
 
 #current_weather:after {
   content: "";
-  background-color: black;
-  position: absolute;
   width: 3px;
   height: 40px;
+  position: absolute;
   top: 30%;
   left: 55%;
-}
-
-.contenedor-joke {
-  height: auto;
-  width: 70%;
-  display: grid;
-  grid-template-areas:
-      'titulo'
-      'chiste'
-      'puntuaciones'
-      'siguiente';
-  grid-template-rows: 5% auto 5% 5%;
+  background-color: black;
 }
 
 .joke-title {
   grid-area: titulo;
   text-align: center;
+  font-size: 0.9rem;
   color: white;
   text-shadow: 0px 3px 6px #15228546;
-  font-size: 0.9rem;
 }
 
 .joke-joke-off {
@@ -74,8 +72,8 @@
 
 .joke-joke-on {
   grid-area: chiste;
+  font-size: 1rem;
   line-height: 1.7rem;
-  font-size: 1.0rem;
   letter-spacing: 0.1rem;
   color: white;
   display: flex;
@@ -86,12 +84,11 @@
 blockquote {
   font-style: italic;
   border: none;
-  quotes: "\201C""\201D""\2018""\2019";
+  quotes: "“" "”" "‘" "’";
   display: block;
   text-align: center;
 }
-
-blockquote:before {
+blockquote ::before {
   content: open-quote;
   color: white;
   font-size: 3em;
@@ -99,15 +96,13 @@ blockquote:before {
   margin-right: 0.25em;
   vertical-align: -0.4em;
 }
-
-blockquote:after {
+blockquote ::after {
   content: close-quote;
   color: white;
   font-size: 3em;
   line-height: 0.1em;
   vertical-align: -0.5em;
 }
-
 blockquote p {
   display: inline;
 }
@@ -120,10 +115,6 @@ blockquote p {
   grid-area: puntuaciones;
   display: flex;
   gap: 2rem;
-}
-
-.joke-next {
-  grid-area: siguiente;
 }
 
 .one-point-button {
@@ -141,8 +132,8 @@ blockquote p {
   align-items: center;
   justify-content: center;
   top: 0;
-  right: 3.2px;
-  bottom: 3.2px;
+  right: 3px;
+  bottom: 3px;
   left: 0;
   background-image: url(/assets/faces/face-1.svg);
   background-size: 100%;
@@ -157,14 +148,14 @@ blockquote p {
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: center center;
-  top: 3.2px;
+  top: 3px;
   right: 0;
   bottom: 0;
-  left: 3.2px;
+  left: 3px;
 }
 
 .one-point-button:active .one-point-button-face {
-  transform: translateX(3.2px) translateY(3.2px);
+  transform: translateX(3px) translateY(3px);
 }
 
 .two-point-button {
@@ -182,8 +173,8 @@ blockquote p {
   align-items: center;
   justify-content: center;
   top: 0;
-  right: 3.2px;
-  bottom: 3.2px;
+  right: 3px;
+  bottom: 3px;
   left: 0;
   background-image: url(/assets/faces/face-2.svg);
   background-size: 100%;
@@ -198,14 +189,14 @@ blockquote p {
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: center center;
-  top: 3.2px;
+  top: 3px;
   right: 0;
   bottom: 0;
-  left: 3.2px;
+  left: 3px;
 }
 
 .two-point-button:active .two-point-button-face {
-  transform: translateX(3.2px) translateY(3.2px);
+  transform: translateX(3px) translateY(3px);
 }
 
 .three-point-button {
@@ -223,8 +214,8 @@ blockquote p {
   align-items: center;
   justify-content: center;
   top: 0;
-  right: 3.2px;
-  bottom: 3.2px;
+  right: 3px;
+  bottom: 3px;
   left: 0;
   background-image: url(/assets/faces/face-3.svg);
   background-size: 100%;
@@ -239,14 +230,18 @@ blockquote p {
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: center center;
-  top: 3.2px;
+  top: 3px;
   right: 0;
   bottom: 0;
-  left: 3.2px;
+  left: 3px;
 }
 
 .three-point-button:active .three-point-button-face {
-  transform: translateX(3.2px) translateY(3.2px);
+  transform: translateX(3px) translateY(3px);
+}
+
+.joke-next {
+  grid-area: siguiente;
 }
 
 .capsula-button {
@@ -268,8 +263,8 @@ blockquote p {
   align-items: center;
   justify-content: center;
   top: 0;
-  right: 4px;
-  bottom: 4px;
+  right: 3px;
+  bottom: 3px;
   left: 0;
   background-image: url(/assets/btn/capsula-border.svg);
   background-size: 80%;
@@ -284,14 +279,14 @@ blockquote p {
   background-size: 80%;
   background-repeat: no-repeat;
   background-position: center center;
-  top: 4px;
+  top: 3px;
   right: 0;
   bottom: 0;
-  left: 4px;
+  left: 3px;
 }
 
 .capsula-button:active .capsula-button-text {
-  transform: translateX(4px) translateY(4px);
+  transform: translateX(3px) translateY(3px);
 }
 
 .blob {
@@ -305,24 +300,8 @@ blockquote p {
 .blob-bg {
   background-size: 100%;
   background-repeat: no-repeat;
-  background-position: center; 
+  background-position: center;
 }
-
-.blob-bg-1 { background-image: url(/assets/blobs/blob-bg-1.svg); }
-.blob-bg-2 { background-image: url(/assets/blobs/blob-bg-2.svg); }
-.blob-bg-3 { background-image: url(/assets/blobs/blob-bg-3.svg); }
-.blob-bg-4 { background-image: url(/assets/blobs/blob-bg-4.svg); }
-.blob-bg-5 { background-image: url(/assets/blobs/blob-bg-5.svg); }
-.blob-bg-6 { background-image: url(/assets/blobs/blob-bg-6.svg); }
-.blob-bg-7 { background-image: url(/assets/blobs/blob-bg-7.svg); }
-.blob-bg-8 { background-image: url(/assets/blobs/blob-bg-8.svg); }
-.blob-bg-9 { background-image: url(/assets/blobs/blob-bg-9.svg); }
-.blob-bg-10 { background-image: url(/assets/blobs/blob-bg-10.svg); }
-.blob-bg-11 { background-image: url(/assets/blobs/blob-bg-11.svg); }
-.blob-bg-12 { background-image: url(/assets/blobs/blob-bg-12.svg); }
-.blob-bg-13 { background-image: url(/assets/blobs/blob-bg-13.svg); }
-.blob-bg-14 { background-image: url(/assets/blobs/blob-bg-14.svg); }
-.blob-bg-15 { background-image: url(/assets/blobs/blob-bg-15.svg); }
 
 .blob-mini {
   width: 200px;
@@ -343,23 +322,144 @@ blockquote p {
   right: 20px;
 }
 
-.blob-mini-bg-1 { background-image: url(/assets/blobs/blob-1.svg); }
-.blob-mini-bg-2 { background-image: url(/assets/blobs/blob-2.svg); }
-.blob-mini-bg-3 { background-image: url(/assets/blobs/blob-3.svg); }
-.blob-mini-bg-4 { background-image: url(/assets/blobs/blob-4.svg); }
-.blob-mini-bg-5 { background-image: url(/assets/blobs/blob-5.svg); }
-.blob-mini-bg-6 { background-image: url(/assets/blobs/blob-6.svg); }
-.blob-mini-bg-7 { background-image: url(/assets/blobs/blob-7.svg); }
-.blob-mini-bg-8 { background-image: url(/assets/blobs/blob-8.svg); }
-.blob-mini-bg-9 { background-image: url(/assets/blobs/blob-9.svg); }
-.blob-mini-bg-10 { background-image: url(/assets/blobs/blob-10.svg); }
-.blob-mini-bg-11 { background-image: url(/assets/blobs/blob-11.svg); }
-.blob-mini-bg-12 { background-image: url(/assets/blobs/blob-12.svg); }
-.blob-mini-bg-13 { background-image: url(/assets/blobs/blob-13.svg); }
-.blob-mini-bg-14 { background-image: url(/assets/blobs/blob-14.svg); }
-.blob-mini-bg-15 { background-image: url(/assets/blobs/blob-15.svg); }
-.blob-mini-bg-16 { background-image: url(/assets/blobs/blob-16.svg); }
-.blob-mini-bg-17 { background-image: url(/assets/blobs/blob-17.svg); }
-.blob-mini-bg-18 { background-image: url(/assets/blobs/blob-18.svg); }
-.blob-mini-bg-19 { background-image: url(/assets/blobs/blob-19.svg); }
-.blob-mini-bg-20 { background-image: url(/assets/blobs/blob-20.svg); }
+.blob-bg-1 {
+  background-image: url("/assets/blobs/blob-bg-1.svg");
+}
+
+.blob-bg-2 {
+  background-image: url("/assets/blobs/blob-bg-2.svg");
+}
+
+.blob-bg-3 {
+  background-image: url("/assets/blobs/blob-bg-3.svg");
+}
+
+.blob-bg-4 {
+  background-image: url("/assets/blobs/blob-bg-4.svg");
+}
+
+.blob-bg-5 {
+  background-image: url("/assets/blobs/blob-bg-5.svg");
+}
+
+.blob-bg-6 {
+  background-image: url("/assets/blobs/blob-bg-6.svg");
+}
+
+.blob-bg-7 {
+  background-image: url("/assets/blobs/blob-bg-7.svg");
+}
+
+.blob-bg-8 {
+  background-image: url("/assets/blobs/blob-bg-8.svg");
+}
+
+.blob-bg-9 {
+  background-image: url("/assets/blobs/blob-bg-9.svg");
+}
+
+.blob-bg-10 {
+  background-image: url("/assets/blobs/blob-bg-10.svg");
+}
+
+.blob-bg-11 {
+  background-image: url("/assets/blobs/blob-bg-11.svg");
+}
+
+.blob-bg-12 {
+  background-image: url("/assets/blobs/blob-bg-12.svg");
+}
+
+.blob-bg-13 {
+  background-image: url("/assets/blobs/blob-bg-13.svg");
+}
+
+.blob-bg-14 {
+  background-image: url("/assets/blobs/blob-bg-14.svg");
+}
+
+.blob-bg-15 {
+  background-image: url("/assets/blobs/blob-bg-15.svg");
+}
+
+.blob-mini-bg-1 {
+  background-image: url("/assets/blobs/blob-1.svg");
+}
+
+.blob-mini-bg-2 {
+  background-image: url("/assets/blobs/blob-2.svg");
+}
+
+.blob-mini-bg-3 {
+  background-image: url("/assets/blobs/blob-3.svg");
+}
+
+.blob-mini-bg-4 {
+  background-image: url("/assets/blobs/blob-4.svg");
+}
+
+.blob-mini-bg-5 {
+  background-image: url("/assets/blobs/blob-5.svg");
+}
+
+.blob-mini-bg-6 {
+  background-image: url("/assets/blobs/blob-6.svg");
+}
+
+.blob-mini-bg-7 {
+  background-image: url("/assets/blobs/blob-7.svg");
+}
+
+.blob-mini-bg-8 {
+  background-image: url("/assets/blobs/blob-8.svg");
+}
+
+.blob-mini-bg-9 {
+  background-image: url("/assets/blobs/blob-9.svg");
+}
+
+.blob-mini-bg-10 {
+  background-image: url("/assets/blobs/blob-10.svg");
+}
+
+.blob-mini-bg-11 {
+  background-image: url("/assets/blobs/blob-11.svg");
+}
+
+.blob-mini-bg-12 {
+  background-image: url("/assets/blobs/blob-12.svg");
+}
+
+.blob-mini-bg-13 {
+  background-image: url("/assets/blobs/blob-13.svg");
+}
+
+.blob-mini-bg-14 {
+  background-image: url("/assets/blobs/blob-14.svg");
+}
+
+.blob-mini-bg-15 {
+  background-image: url("/assets/blobs/blob-15.svg");
+}
+
+.blob-mini-bg-16 {
+  background-image: url("/assets/blobs/blob-16.svg");
+}
+
+.blob-mini-bg-17 {
+  background-image: url("/assets/blobs/blob-17.svg");
+}
+
+.blob-mini-bg-18 {
+  background-image: url("/assets/blobs/blob-18.svg");
+}
+
+.blob-mini-bg-19 {
+  background-image: url("/assets/blobs/blob-19.svg");
+}
+
+.blob-mini-bg-20 {
+  background-image: url("/assets/blobs/blob-20.svg");
+}
+
+/*# sourceMappingURL=main.css.map */

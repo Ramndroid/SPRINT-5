@@ -1,0 +1,59 @@
+//////////////////////////////////// PRINCIPALES VARIABLES
+$desplazamientoMiniBlobs : 20px;
+$tamanoMiniBlobs         : 200px;
+
+$totalBlobsBg: 15;
+$urlBlobsBg  : "/assets/blobs/blob-bg-";
+
+$totalBlobsMini: 20;
+$urlBlobsMini  : "/assets/blobs/blob-";
+///////////////////////////////////////////////////////////////
+
+.blob {
+  width          : 800px;
+  height         : 100%;
+  display        : flex;
+  justify-content: center;
+  align-items    : center;
+}
+
+.blob-bg {
+  background-size    : 100%;
+  background-repeat  : no-repeat;
+  background-position: center;
+}
+
+.blob-mini {
+  width            : $tamanoMiniBlobs;
+  height           : $tamanoMiniBlobs;
+  position         : absolute;
+  background-size  : 100%;
+  background-repeat: no-repeat;
+  z-index          : -1;
+}
+
+.blob-mini-1 {
+  bottom: $desplazamientoMiniBlobs;
+  left  : $desplazamientoMiniBlobs;
+}
+
+.blob-mini-2 {
+  top  : $desplazamientoMiniBlobs;
+  right: $desplazamientoMiniBlobs;
+}
+
+@for $i from 1 through $totalBlobsBg {
+  $urlsvg: $urlBlobsBg + $i + ".svg";
+
+  .blob-bg-#{$i} {
+    background-image: url($urlsvg);
+  }
+}
+
+@for $i from 1 through $totalBlobsMini {
+  $urlsvg: $urlBlobsMini + $i + ".svg";
+
+  .blob-mini-bg-#{$i} {
+    background-image: url($urlsvg);
+  }
+}

@@ -1,0 +1,19 @@
+.contenedor-principal {
+  width          : 100vw;
+  height         : 100vh;
+  display        : flex;
+  justify-content: center;
+  align-items    : center;
+}
+
+.contenedor-joke {
+  height : auto;
+  width  : 70%;
+  display: grid;
+  grid-template-areas:
+    'titulo'
+    'chiste'
+    'puntuaciones'
+    'siguiente';
+  grid-template-rows: 5% auto 5% 5%;
+}
